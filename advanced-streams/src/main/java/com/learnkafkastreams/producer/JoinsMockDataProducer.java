@@ -27,7 +27,7 @@ public class JoinsMockDataProducer {
 //                "A", "A is the First letter in English Alphabets.",
 //                "B", "B is the Second letter in English Alphabets."
         );
-        //publishMessages(alphabetMap, ALPHABETS);
+//        publishMessages(alphabetMap, ALPHABETS);
 
         //JoinWindows
         //-4 & 4 will trigger the join
@@ -40,14 +40,14 @@ public class JoinsMockDataProducer {
                 , "C", "Cat"
 
         );
-        publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVATIONS);
+//        publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVATIONS);
 
         alphabetAbbrevationMap = Map.of(
                 "A", "Airplane",
                 "B", "Baby."
 
         );
-        // publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVATIONS);
+         publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVATIONS);
 
     }
 

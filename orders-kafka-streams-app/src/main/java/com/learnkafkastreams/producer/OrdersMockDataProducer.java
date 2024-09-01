@@ -26,8 +26,8 @@ public class OrdersMockDataProducer {
                 .registerModule(new JavaTimeModule())
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
-        publishOrders(objectMapper, buildOrders());
-        //publishBulkOrders(objectMapper);
+//        publishOrders(objectMapper, buildOrders());
+//        publishBulkOrders(objectMapper);
 
         //grace-period
 //        publishOrdersForGracePeriod(objectMapper, buildOrders());
@@ -35,6 +35,7 @@ public class OrdersMockDataProducer {
         //Future and Old Records
 //        publishFutureRecords(objectMapper);
 //        publishExpiredRecords(objectMapper);
+
 
 
     }
@@ -80,16 +81,16 @@ public class OrdersMockDataProducer {
         var localDateTime = LocalDateTime.now().with(modifiedTime);
 
         //With Grace Period
-        //[general_orders_revenue_window]: , TotalRevenue[locationId=store_4567, runnuingOrderCount=1, runningRevenue=27.00]
-        //[general_orders_revenue_window]: TotalRevenue[locationId=store_1234, runnuingOrderCount=1, runningRevenue=27.00]
-        //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runnuingOrderCount=1, runningRevenue=27.00]
-        //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runnuingOrderCount=1, runningRevenue=27.00]
+        //[general_orders_revenue_window]: , TotalRevenue[locationId=store_4567, runningOrderCount=1, runningRevenue=27.00]
+        //[general_orders_revenue_window]: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+        //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runningOrderCount=1, runningRevenue=27.00]
+        //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runningOrderCount=1, runningRevenue=27.00]
 
         //Without Grace Period
-        //[general_orders_revenue_window]: , TotalRevenue[locationId=store_4567, runnuingOrderCount=1, runningRevenue=27.00]
-        //[general_orders_revenue_window]: TotalRevenue[locationId=store_1234, runnuingOrderCount=1, runningRevenue=27.00]
-        //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runnuingOrderCount=1, runningRevenue=27.00]
-        //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runnuingOrderCount=1, runningRevenue=27.00]
+        //[general_orders_revenue_window]: , TotalRevenue[locationId=store_4567, runningOrderCount=1, runningRevenue=27.00]
+        //[general_orders_revenue_window]: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+        //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runningOrderCount=1, runningRevenue=27.00]
+        //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runningOrderCount=1, runningRevenue=27.00]
 
 
 

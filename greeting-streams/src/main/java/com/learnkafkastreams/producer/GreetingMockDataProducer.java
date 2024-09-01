@@ -29,29 +29,26 @@ public class GreetingMockDataProducer {
 
     private static void spanishGreetings(ObjectMapper objectMapper) {
         var spanishGreetings = List.of(
-                new Greeting("Hello, Good Morning!", LocalDateTime.now()),
-                new Greeting("Hello, Good Evening!", LocalDateTime.now()),
-                new Greeting("Hello, Good Night!", LocalDateTime.now())
-        );
-        spanishGreetings
-                .forEach(greeting -> {
-                    try {
-                        var greetingJSON = objectMapper.writeValueAsString(greeting);
-                        var recordMetaData = publishMessageSync(GREETINGS, null, greetingJSON);
-                        log.info("Published the alphabet message : {} ", recordMetaData);
-                    } catch (JsonProcessingException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-    }
-
-    private static void englishGreetings(ObjectMapper objectMapper) {
-        var spanishGreetings = List.of(
                 new Greeting("¡Hola buenos dias!", LocalDateTime.now()),
                 new Greeting("¡Hola buenas tardes!", LocalDateTime.now()),
                 new Greeting("¡Hola, buenas noches!", LocalDateTime.now())
         );
-        spanishGreetings
+        publishMessages(objectMapper, spanishGreetings);
+    }
+
+    private static void englishGreetings(ObjectMapper objectMapper) {
+        var englishGreetings = List.of(
+
+                new Greeting("Hello, Good Morning!", LocalDateTime.now()),
+                new Greeting("Hello, Good Evening!", LocalDateTime.now()),
+                new Greeting("Hello, Good Night!", LocalDateTime.now()),
+                new Greeting("Transient Error", LocalDateTime.now())
+        );
+        publishMessages(objectMapper, englishGreetings);
+    }
+
+    private static void publishMessages(ObjectMapper objectMapper, List<Greeting> greetings) {
+        greetings
                 .forEach(greeting -> {
                     try {
                         var greetingJSON = objectMapper.writeValueAsString(greeting);

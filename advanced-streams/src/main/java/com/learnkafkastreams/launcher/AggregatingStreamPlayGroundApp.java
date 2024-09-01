@@ -34,7 +34,7 @@ public class AggregatingStreamPlayGroundApp {
         createTopics(config, List.of(AGGREGATE));
          var kafkaStreams = new KafkaStreams(kTableTopology, config);
 
-       // Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));
+        Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));
 
         log.info("Starting Greeting streams");
         kafkaStreams.start();
